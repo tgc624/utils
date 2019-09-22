@@ -23,8 +23,13 @@ module.exports = {
           allowFirstLine: false
         }
       }
+    ],
+    "vue/singleline-html-element-content-newline": [
+      {
+        ignoreWhenNoAttributes: true,
+        ignoreWhenEmpty: true
+      }
     ]
-    // "prettier/prettier": [{}]
   },
   parserOptions: {
     parser: "@typescript-eslint/parser"
