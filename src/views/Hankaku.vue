@@ -27,9 +27,7 @@
             />
           </v-col>
           <v-col>
-            <v-sheet>
-              <span>全角カタカナを半角カタカナにします。</span>
-            </v-sheet>
+            <span>全角カタカナを半角カタカナにします。</span>
           </v-col>
         </v-row>
         <v-snackbar v-model="showSnackbar" :timeout="750" top>{{ snackbar.textLabel }}</v-snackbar>
