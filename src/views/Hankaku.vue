@@ -32,7 +32,7 @@
             </v-sheet>
           </v-col>
         </v-row>
-        <v-snackbar v-model="showSnackbar" :timeout="750" top>Copyed!</v-snackbar>
+        <v-snackbar v-model="showSnackbar" :timeout="750" top>{{ snackbar.textLabel }}</v-snackbar>
       </v-container>
     </v-content>
   </v-app>
@@ -45,8 +45,13 @@ import { zenkaku2hankaku } from "@/utils/hankaku";
 export default Vue.extend({
   name: "Hankaku",
   components: {},
-  data: (): { zenkaku: string | null; showSnackbar: boolean } => ({
+  data: (): {
+    zenkaku: string | null;
+    snackbar: { textLabel: string; color?: string };
+    showSnackbar: boolean;
+  } => ({
     zenkaku: "",
+    snackbar: { textLabel: "" },
     showSnackbar: false
   }),
   computed: {
@@ -58,7 +63,15 @@ export default Vue.extend({
     copy: function() {
       navigator.clipboard
         .writeText(this.hankaku)
-        .then(() => (this.showSnackbar = true));
+        .then(() => {
+          this.snackbar = { textLabel: "Copied!" };
+        })
+        .catch(reason => {
+          this.snackbar = { textLabel: reason, color: "error" };
+        })
+        .finally(() => {
+          this.showSnackbar = true;
+        });
     }
   }
 });
