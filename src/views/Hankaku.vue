@@ -45,7 +45,7 @@ import { zenkaku2hankaku } from "@/utils/hankaku";
 export default Vue.extend({
   name: "Hankaku",
   components: {},
-  data: () => ({
+  data: (): { zenkaku: string | null; showSnackbar: boolean } => ({
     zenkaku: "",
     showSnackbar: false
   }),
