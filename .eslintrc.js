@@ -24,12 +24,7 @@ module.exports = {
         }
       }
     ],
-    "vue/singleline-html-element-content-newline": [
-      {
-        ignoreWhenNoAttributes: true,
-        ignoreWhenEmpty: true
-      }
-    ]
+    "vue/singleline-html-element-content-newline": "off"
   },
   parserOptions: {
     parser: "@typescript-eslint/parser"
