@@ -56,10 +56,9 @@ export default Vue.extend({
   },
   methods: {
     copy: function() {
-      (document.querySelector("#hankaku") as HTMLInputElement).select();
-      document.execCommand("copy");
-      this.showSnackbar = true;
-      (document.querySelector("#zenkaku") as HTMLInputElement).select();
+      navigator.clipboard
+        .writeText(this.hankaku)
+        .then(() => (this.showSnackbar = true));
     }
   }
 });
