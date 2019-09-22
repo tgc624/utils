@@ -1,8 +1,5 @@
 <template>
   <v-app>
-    <v-app-bar app>
-      <v-toolbar-title>Hankaku</v-toolbar-title>
-    </v-app-bar>
     <v-content>
       <v-container>
         <v-row>
@@ -35,9 +32,7 @@
             </v-sheet>
           </v-col>
         </v-row>
-        <v-snackbar v-model="showSnackbar" :timeout="750" top>
-          Copyed!
-        </v-snackbar>
+        <v-snackbar v-model="showSnackbar" :timeout="750" top>Copyed!</v-snackbar>
       </v-container>
     </v-content>
   </v-app>
