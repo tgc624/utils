@@ -1,6 +1,6 @@
 {
-  "name": "hoge",
-  "short_name": "hoge",
+  "name": "tgc-utils",
+  "short_name": "tgc-utils",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",
