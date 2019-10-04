@@ -16,6 +16,12 @@ export default new Router({
       name: "hankaku",
       component: () =>
         import(/* webpackChunkName: "hankaku" */ "@/views/Hankaku.vue")
+    },
+    {
+      path: "/period-graph",
+      name: "period-graph",
+      component: () =>
+        import(/* webpackChunkName: "period-graph" */ "@/views/PeriodGraph.vue")
     }
   ]
 });
