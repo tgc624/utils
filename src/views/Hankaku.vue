@@ -44,6 +44,7 @@
 <script lang="ts">
 import Vue from "vue";
 import { zenkaku2hankaku } from "@/utils/hankaku";
+import { isCopyable } from "@/utils";
 
 export default Vue.extend({
   name: "Hankaku",
@@ -61,13 +62,7 @@ export default Vue.extend({
     hankaku: function(): string {
       return this.zenkaku ? zenkaku2hankaku(this.zenkaku) : "";
     },
-    isCopyable: (): boolean => {
-      return !!(
-        navigator &&
-        navigator.clipboard &&
-        navigator.clipboard.writeText
-      );
-    }
+    isCopyable
   },
   methods: {
     copy: function() {
