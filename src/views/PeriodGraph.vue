@@ -2,10 +2,10 @@
   <v-app>
     <v-content>
       <v-container>
-        <v-alert
-          v-if="hasSyntaxError"
-          type="error"
-        >[Syntax Error] The URL queries have some syntax errors.</v-alert>
+        <v-alert v-if="hasSyntaxError" type="error">
+          <p>[Syntax Error] The URL queries have some syntax errors.</p>
+          <p>{{ url }}</p>
+        </v-alert>
         <v-row v-else justify="end">
           <v-col cols="12">
             <v-card>
