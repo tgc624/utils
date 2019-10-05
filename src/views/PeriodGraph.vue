@@ -110,17 +110,24 @@ export default Vue.extend({
       });
     }
   },
-  mounted() {
-    const { title, linesJson } = this.$route.query;
-    if (isString(title)) {
-      this.title = title;
-    }
-    try {
-      const lines: Line[] = JSON.parse(this.$route.query.linesJson as string);
-      this.series = lines.map(line => line2series(line));
-    } catch (error) {
-      console.error(`SyntaxError: ${linesJson}`);
-      this.hasSyntaxError = true;
+  watch: {
+    ["$route.query"]: {
+      handler: function() {
+        const { title, linesJson } = this.$route.query;
+        if (isString(title)) {
+          this.title = title;
+        }
+        try {
+          const lines: Line[] = JSON.parse(this.$route.query
+            .linesJson as string);
+          this.series = lines.map(line => line2series(line));
+        } catch (error) {
+          console.error(`SyntaxError: ${this.url}`);
+          this.hasSyntaxError = true;
+        }
+      },
+      deep: true,
+      immediate: true
     }
   }
 });
